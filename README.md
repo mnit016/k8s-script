@@ -2,8 +2,7 @@
 This repo to store helpful script with K8s
 
 ## Get all requested Memory & CPU on K8s
-This script will only select running pods and its containers (not initContainers)
-Then return the total memory/cpu are requested by each node.
+This script will only select running pods and its containers (not initContainers), then return the total memory/cpu are requested by each node.
 ### Require
 - Nodejs (Calculate float number line 59,60)
 - Bash version > 4.0
