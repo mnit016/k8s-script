@@ -3,6 +3,7 @@ echo "Processing..."
 nodes=$(kubectl get pods -o=jsonpath='{.items[*]..spec.nodeName}' -A)
 echo "$nodes" | tr ' ' '\n' | sort | uniq > tmp.txt
 IFS=$'\r\n' GLOBIGNORE='*' command eval 'nodeArray=($(cat tmp.txt))'
+rm -f tmp.txt
 
 declare -A map
 declare -A mapCPU
