@@ -53,7 +53,7 @@ done
 
 totalNodes=${#nodeArray[@]}
 counter=0
-echo "NodeName Memory(GiB) CPU" > tmp.result
+echo "Node Name,Memory (GiB),CPU" > tmp.result
 for node in ${nodeArray[@]}
 do
    requestMem=$(echo ${map[$node]}/1024 | node -p)
@@ -62,11 +62,10 @@ do
    progress=$((counter*100/totalNodes))
    sleep 1
    echo -ne "\rGenerating result: $progress%"
-   echo "$node $requestMem $requestCPU" >> tmp.result
+   echo "$node,$requestMem,$requestCPU" >> tmp.result
 done
 echo ""
 echo "===================================================="
 echo "======================Result========================"
 echo "===================================================="
-cat tmp.result | column -t -s' '
-rm -f tmp.result
+cat result.csv | column -t -s' '
